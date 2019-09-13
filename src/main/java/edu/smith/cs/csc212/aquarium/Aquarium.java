@@ -17,6 +17,7 @@ import me.jjfoley.gfx.GFX;
  * @author jfoley
  *
  */
+
 public class Aquarium extends GFX {
 	/**
 	 * This is a static variable that tells us how wide the aquarium is.
@@ -35,15 +36,17 @@ public class Aquarium extends GFX {
 	/**
 	 * This is a constructor, code that runs when we make a new Aquarium.
 	 */
+
 	public Aquarium() {
 		// Here we ask GFX to make our window of size WIDTH and HEIGHT.
 		// Don't change this here, edit the variables instead.
 		super(WIDTH, HEIGHT);
 	}
-
+	Fish fish1 = new Fish(450, 100, Color.black, false, false);
 	int fish1X = getWidth() + 100;
 	int fish2X = getWidth() + 300;
-
+	int fish3X = getWidth() - 50;
+	
 	@Override
 	public void draw(Graphics2D g) {
 		// Draw the "ocean" background.
@@ -56,7 +59,7 @@ public class Aquarium extends GFX {
 		DrawFish.facingRight(g, Color.green, fish2X, 300);
 
 		// What if we wanted this little fish to swim, too?
-		DrawFish.smallFacingLeft(g, Color.red, 200, 100);
+		DrawFish.smallFacingLeft(g, Color.red, fish3X, 100);
 
 		// Draw our snail!
 		algorithm.draw(g);
@@ -64,6 +67,7 @@ public class Aquarium extends GFX {
 		// Move the fish!
 		fish1X -= 1;
 		fish2X -= 2;
+		fish3X -= 1;
 	}
 
 	public static void main(String[] args) {
